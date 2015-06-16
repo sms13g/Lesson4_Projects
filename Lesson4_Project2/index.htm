@@ -5,8 +5,8 @@
       LIS 2360:  Web Application Development
       Lesson 4 - Project 2
 
-      Author: 
-      Date:   
+      Author: Samantha Strum
+      Date:   6/19/2015
 
       Filename: index.htm
    -->
@@ -14,7 +14,7 @@
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <title>Lesson 4 - Project #2</title>
    <link rel="stylesheet" href="styles.css" />
-    
+   <script src="modernizer.custom.05819.js"></script>
 </head>
 
 <body>
@@ -52,24 +52,77 @@
           <fieldset id="employeeinfo">
             <legend>Employee Summary</legend>
              <label>                  
-                 
+                <p id="firstlast"></p> 
+                <p id= "fname"></p>
+                <p id= "hoursWorked"></p>
+                <p id= "hourlyWage"></p> 
              </label>              
           </fieldset>
             
           <fieldset id="calculationinfo">
             <legend>Calculations</legend>
              <label>                  
-                 
+               <p id= "grosspay"></p>
+               <p id= "fedwith"></p>
+               <p id= "statewith"></p>
+               <p id= "totalded"></p>
+               <p id= "netpay"></p>  
              </label>              
           </fieldset>
             
         </fieldset>
           
         <fieldset id="calculatebutton">
-          <button type="button"  > Calculate! </button>
-        </fieldset>
+          <button type="button" onclick="myFunction()"> Calculate! </button>
+                                                     
+        </fieldset> 
+                                                     <script> function myFunction(){
+                                                     //Declare variables for Employee information
+                                                     var lastname=document.getElementByld("lnameInput);
+                                                     var firstname=document.getElementByld(fnameinput");
+                                                     var hours=document.getElementByld("hoursinput);
+                                                     var rate= document.getElementByld("wageinput");
+                                                     var empName=firstname.value + ""+lastname.value;                                                                                                   
+                                                     }// end of my Function                                       
+                                                     //Declare variables for Payroll Calculations
+                                                     var wageRate;
+                                                     var hoursWorked;
+                                                     var grossPay;
+                                                     var netPay;
+                                                     var fedTaxWith;
+                                                     var stateTaxWith;
+                                                     var totDeducitons;
+                                                    //Declare Constants (withholding rates)
+                                                     const FED_RATE=0.15; //federal rate
+                                                     const STATE_RATE=0.034; //state rate
+                                                    //Convert the String to a Float using parseFloat() function for calculations
+                                                     wageRate= parseFloat(rate.value);
+                                                     hoursWorked=parseFloar(hours.value);
+                                                    //Calculate Gross Pay
+                                                      grossPay=hoursWorked*wageRate;
+                                                    //Calculate Federal Withholdings
+                                                      fedTaxWith=grossPay*FED_RATE;
+                                                    //Calulate State Withholdings
+                                                      stateTaxWith= grossPay*STATE_RATE;
+                                                    //Calculate Total Deductions
+                                                      totDeductions=fedTaxWith+stateTaxWith;
+                                                    //Calculate Net Pay
+                                                      netPay=grossPay-totDeductions; 
+                  //Display Employee Information
+                  document.getElementByld("firstlast").innerHTML= "Employee Name:" + empName.toUpperCase();
+                  document.getElementByld("hoursWorked").innerHTML= "Hours Worked:" + hours.value;
+                  document.getElementByld("hoursWaged").innerHTML= "Hourly Wage Rate:"+ rate.value;
+                  //Display Payroll Calculation Results
+                  document.getElementByld("grosspay").innerHTML= "Gross Pay:"+ gross.Pay.toFixed(2);
+                  document.getElementByld("fedwith").innerHTML= "Federal Income Tax:"+ fedTaxWith.toFixed(2);
+                  document.getElementByld("statewith").innerHTML= "State Income Tax:"+ StateTayWith.toFixed(2);
+                  document.getElementByld("totalded").innerHTML= "Total Deductions:"+ totDeductions.toFixed(2);
+                  document.getElementByld("netpay").innerHTML= "Net Pay:"+ netPay.toFixed(2);
+                  </script>
+            
+                         
     
- 
+     
      </form>
   </article>   
     
